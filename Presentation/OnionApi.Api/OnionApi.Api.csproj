@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\OnionApi.Persistance\OnionApi.Persistance.csproj" />
+    <ProjectReference Include="..\..\OnionApi.Mapper\OnionApi.Mapper.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,10 +26,6 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
