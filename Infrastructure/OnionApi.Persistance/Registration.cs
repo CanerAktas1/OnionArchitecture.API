@@ -2,8 +2,10 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnionApi.Application.Interfaces.Repositories;
+using OnionApi.Application.Interfaces.UnitOfWorks;
 using OnionApi.Persistance.Context;
 using OnionApi.Persistance.Repositories;
+using OnionApi.Persistance.UnitOfWorks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +23,7 @@ namespace OnionApi.Persistance
 
             services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
