@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using OnionApi.Application.DTOs;
 using OnionApi.Application.Interfaces.AutoMapper;
@@ -36,7 +37,8 @@ namespace OnionApi.Application.Features.Products.Queries.GetAllProducts
                 item.Price -= item.Price * item.Discount / 100;
             }
 
-            return map;
+            //return map;
+            throw new Exception("Hata mesajı");
         }
     }
 }

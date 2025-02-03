@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OnionApi.Application.Features.Products.DeleteProduct
+namespace OnionApi.Application.Features.Products.Command.DeleteProduct
 {
     internal class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest>
     {
