@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnionApi.Application.Features.Products.Command.CreateProduct;
+using OnionApi.Application.Features.Products.Command.DeleteProduct;
 using OnionApi.Application.Features.Products.Command.UpdateProduct;
-using OnionApi.Application.Features.Products.DeleteProduct;
 using OnionApi.Application.Features.Products.Queries.GetAllProducts;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
