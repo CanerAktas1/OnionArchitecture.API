@@ -21,14 +21,14 @@ namespace OnionApi.Application.Behaviors
         {
             if (request is ICacheableQuery query)
             {
-                var cacheKey = query.CacheKey;
-                var cacheTime = query.CacheTime;
+                string cacheKey = query.CacheKey;
+                double cacheTime = query.CacheTime;
 
-                var cachedData = await redisCacheService.GetAsync<TResponse>(cacheKey);
+                TResponse cachedData = await redisCacheService.GetAsync<TResponse>(cacheKey);
                 if (cachedData is not null)
                     return cachedData;
 
-                var response = await next();
+                TResponse response = await next();
                 if (response is not null)
                     await redisCacheService.SetAsync(cacheKey, response, DateTime.Now.AddMinutes(cacheTime));
 
