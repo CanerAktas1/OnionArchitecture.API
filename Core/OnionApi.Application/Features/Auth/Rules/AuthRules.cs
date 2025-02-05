@@ -6,15 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YoutubeApi.Application.Features.Auth.Exceptions;
 
 namespace OnionApi.Application.Features.Auth.Rules
 {
-    public class AuthRules:BaseRules
+    public class AuthRules : BaseRules
     {
         public Task UserShouldNotBeExist(User? user)
         {
-            if (user is not null) 
-               throw new UserAlreadyExistException();
+            if (user is not null)
+                throw new UserAlreadyExistException();
 
             return Task.CompletedTask;
         }
@@ -23,6 +24,18 @@ namespace OnionApi.Application.Features.Auth.Rules
         {
             if (user is null || !checkPassword) throw new EmailOrPasswordShouldNotBeInvalidException();
             return Task.CompletedTask;
+        }
+
+        public Task RefreshTokenShouldNotBeExpired(DateTime? expiryDate)
+        {
+            if (expiryDate <= DateTime.Now) throw new RefreshTokenShouldNotBeExpiredException();
+            return Task.CompletedTask;
+        }
+
+        public async Task EmailAddressShouldBeValid(User? user)
+        {
+            if(user is null)
+                throw new EmailAddressShouldBeValidException();
         }
     }
 }
